@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using moment3_mvc_entity.Models;
@@ -18,7 +19,13 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult Privacy()
+    [Route("/Bookie/Allbooks")]
+    public IActionResult Allbooks()
+    {
+        return View();
+    }
+    [Route("/Bookie/Rentabook")]
+    public IActionResult Rentabook()
     {
         return View();
     }

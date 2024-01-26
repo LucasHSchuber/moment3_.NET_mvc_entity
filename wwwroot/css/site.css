@@ -38,7 +38,7 @@ body {
 }
 
 .navbar {
-  padding: 2.5em;
+  padding: 1.5em 2.5em;
 }
 
 .navbar-brand {
@@ -51,22 +51,44 @@ body {
 }
 
 .nav-item a {
+  font-size: 1.6em;
   color: white !important;
-  margin-top: 1em !important;
+  margin-top: 0.7em !important;
   transition: 0.3s;
+  float: right;
+  margin-right: 3%;
   padding-bottom: 0.3em;
   font-weight: 600;
   border-bottom: 0.5px solid transparent;
   text-align: center;
 }
 
-@media (min-width: 576px) {
+.nav-item:first-child {
+  margin-top: 3em;
+}
 
+.nav-item:last-child {
+  margin-bottom: 10em;
+}
+
+@media (min-width: 1199px) {
+
+
+  .nav-item:first-child {
+    margin-top: 0;
+  }
+
+  .nav-item:last-child {
+    margin-bottom: 0;
+  }
 
   .nav-item a {
+    font-size: 1em;
     color: white !important;
     margin-left: 2em !important;
     margin-top: 0.5em;
+    float: none;
+    margin-right: 0;
     transition: 0.3s;
     font-weight: 600;
     padding-bottom: 0.3em;
