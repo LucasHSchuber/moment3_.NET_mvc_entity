@@ -1,6 +1,10 @@
 body,
 html {
-  background-color: rgb(243, 243, 243);
+  background-color: rgb(10, 10, 10);
+}
+
+body {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 html {
@@ -34,11 +38,12 @@ body {
 /* NAVBAR */
 
 .header {
-  background-color: #dac895 !important;
+  background-color: #020202 !important;
 }
 
 .navbar {
   padding: 1.5em 2.5em;
+  border-bottom: none !important;
 }
 
 .navbar-brand {
@@ -106,8 +111,9 @@ body {
 /* FOOTER  */
 .footer {
   height: 15em;
-  background-color: rgb(255, 255, 255) !important;
+  background-color: #000000 !important;
   margin: 0 auto;
+  border-top: none !important;
 }
 
 .footer-box {
@@ -116,8 +122,67 @@ body {
 }
 
 .navbar-brand-footer {
-  color: #dac895 !important;
+  color: #ffffff !important;
   font-size: 2em;
   font-weight: 700;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+
+
+/* INDEX */
+
+.book-wrapper {
+  max-width: 99% !important;
+  margin: 0 auto;
+  height: 100em;
+}
+
+.book-box,
+.latest-book-box {
+  max-width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-around;
+}
+
+.book-box img {
+  width: 8em;
+  margin: 0.5em;
+  border-radius: 7%;
+}
+
+.latest-book-box img {
+  width: 30%;
+  max-width: 15em;
+  margin: 0.5em;
+}
+
+
+.text-box h1 {
+  color: white;
+  font-size: 4.5em;
+  width: 50%;
+  font-weight: bold;
+
+}
+
+.text-box h2 {
+  color: white;
+  font-size: 2em;
+  font-weight: 300;
+}
+
+.text-box p {
+  color: white;
+}
+
+
+@media screen and (max-width: 768px) {
+  .text-box h1 {
+    color: white;
+    font-size: 3em;
+    width: 50%;
+  }
 }
