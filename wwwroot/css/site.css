@@ -1,9 +1,6 @@
 body,
 html {
   background-color: rgb(10, 10, 10);
-}
-
-body {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
@@ -35,6 +32,26 @@ body {
 }
 
 
+
+/* BUTTON */
+
+.btn {
+  font-size: 1.1em;
+  padding: 0.6em 1em;
+  border: red 0.5px solid;
+  background-color: black;
+  color: red;
+  transition: 0.2s;
+}
+
+.btn:hover {
+  color: #211c1c;
+  border: #d5d5d5 0.5px solid;
+}
+
+
+
+
 /* NAVBAR */
 
 .header {
@@ -53,6 +70,12 @@ body {
   font-size: 2em;
   font-weight: 700;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.navbar-brand img {
+  width: 1em !important;
+  height: 1em !important;
+  margin-bottom: 0.3em !important;
 }
 
 .nav-item a {
@@ -136,7 +159,7 @@ body {
 .book-wrapper {
   max-width: 99% !important;
   margin: 0 auto;
-  height: 100em;
+  height: 140em;
 }
 
 .book-box,
@@ -157,15 +180,24 @@ body {
   width: 30%;
   max-width: 15em;
   margin: 0.5em;
+  border-radius: 4%;
 }
 
+.book-box img:hover,
+.latest-book-box img:hover {
+  border-radius: 13% !important;
+  background-color: white !important;
+  transition: 0.1s;
+  opacity: 0.6;
+  background-color: #ffffff;
+  cursor: pointer;
+}
 
 .text-box h1 {
   color: white;
-  font-size: 4.5em;
-  width: 50%;
+  font-size: 3.5em;
+  width: 40%;
   font-weight: bold;
-
 }
 
 .text-box h2 {
