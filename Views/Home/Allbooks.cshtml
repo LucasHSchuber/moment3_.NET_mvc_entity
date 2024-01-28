@@ -1,7 +1,78 @@
 ﻿@{
     ViewData["Title"] = "All books/Libray";
 }
-<h1>@ViewData["Title"]</h1>
+@* <h1>@ViewData["Title"]</h1> *@
 
-<p>search for all books</p>
-<p>Present all books</p>
+
+<div class="book-wrapper mt-2">
+
+    <div class="search-wrapper mt-5">
+
+        <h1 class="mt-5 mb-5">@ViewData["Title"]</h1>
+
+        @* <h4 class="mt-5 mb-4">If you are looking for a spcific book you can search for it in the search bar below. <br> You
+            alos
+            know you can
+            borrow any book free of charge?</h4> *@
+
+        <div>
+            <h5>Search for a book</h5>
+        </div>
+
+        <form class="search-bar form-inline d-flex mb-5">
+            <input class="form-control mr-sm-2 mr-5" type="search" placeholder="Search" aria-label="Search">
+            <button class="search-btn my-sm-0" type="submit">Search</button>
+        </form>
+
+    </div>
+
+    <div class="book-box d-flex justify-content-around">
+        <img src="~/images/book1.jpg" alt="">
+        <img src="~/images/book1.jpg" alt="">
+        <img src="~/images/book1.jpg" alt="">
+        <img src="~/images/book2.jpg" alt="">
+        <img src="~/images/book1.jpg" alt="">
+        <img src="~/images/book2.jpg" alt="">
+        <img src="~/images/book1.jpg" alt="">
+        <img src="~/images/book1.jpg" alt="">
+        <img src="~/images/book1.jpg" alt="">
+        <img src="~/images/book1.jpg" alt="">
+        <img src="~/images/book1.jpg" alt="">
+        <img src="~/images/book1.jpg" alt="">
+        <img src="~/images/book1.jpg" alt="">
+        <img src="~/images/book1.jpg" alt="">
+        <img src="~/images/book1.jpg" alt="">
+
+    </div>
+
+</div>
+
+
+
+
+@* CSS *@
+
+<style>
+    .search-wrapper {
+        margin-left: 2em;
+        color: white;
+    }
+
+    .search-bar {
+        width: 50%;
+
+    }
+
+    .search-bar input {
+        height: 2.5em;
+
+    }
+</style>
+
+
+@* JS *@
+
+<script>
+
+
+</script>

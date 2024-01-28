@@ -1,6 +1,74 @@
-﻿@{
+﻿@model moment3_mvc_entity.Models.RentalModel
+
+@{
     ViewData["Title"] = "Rent a book";
 }
-<h1>@ViewData["Title"]</h1>
 
-<p>Use this page to detail if user wants to rent a book.</p>
+
+
+<div class="book-wrapper mt-2">
+
+    <div class="rental-wrapper mt-5">
+
+        <h1 class="mt-5 mb-5">@ViewData["Title"]</h1>
+
+
+        <form asp-action="create" method="post">
+            <div class="form-group">
+                <label asp-for="Name">Name:</label>
+                <input asp-for="Name" type="text" class="form-control" id="name" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="IdNumber">ID Number (10 digits):</label>
+                <input asp-for="IdNumber" type="number" class="form-control" id="id-number" />
+            </div>
+
+            <div class="form-group small">
+                <label asp-for="BookTitle">Book Title:</label>
+                <input asp-for="BookTitle" list="books" class="form-control" id="book-title" />
+                <datalist id="books">
+                    <option value="Book 1"></option>
+                    <option value="Book 2"></option>
+                    <option value="Book 3"></option>
+                    <!-- Add more options as needed -->
+                </datalist>
+            </div>
+
+            <div class="form-group small">
+                <label asp-for="RentalDate">Rental Date:</label>
+                <input asp-for="RentalDate" type="date" class="form-control" id="rental-date" />
+            </div>
+
+
+
+            <button type="button" class="btn my-4" onclick="rentBook()">Rent book</button>
+        </form>
+
+    </div>
+
+</div>
+
+
+<style>
+    .rental-wrapper {
+        margin-left: 2em;
+        color: white;
+    }
+
+    form {
+        width: 50%;
+        max-width: 40em;
+    }
+
+    form .small {
+        width: 50%;
+        min-width: 20em;
+    }
+</style>
+
+<script>
+    function rentBook() {
+        confirm("Are you sure you want to rent book?");
+    }
+</script>
