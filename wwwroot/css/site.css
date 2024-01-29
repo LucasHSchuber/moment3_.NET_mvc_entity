@@ -172,11 +172,39 @@ body {
   text-align: center;
 }
 
+.footer-nav {
+  text-align: center;
+  list-style-type: none;
+  margin-top: -2em;
+}
+
+.footer-nav-item a {
+  font-size: 1em;
+  color: white !important;
+  text-decoration: underline;
+}
+
+.footer-nav-item a:hover {
+  font-size: 1em;
+  color: rgb(182, 182, 182) !important;
+}
+
+.socials i {
+  color: white;
+  margin-top: -1em;
+}
+
 .navbar-brand-footer {
   color: #ffffff !important;
   font-size: 2em;
   font-weight: 700;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+@media (max-width: 1199px) {
+  .footer-nav-item a {
+    font-size: 1.2em;
+  }
 }
 
 
@@ -187,9 +215,15 @@ body {
 .book-wrapper {
   max-width: 99% !important;
   margin: 0 auto;
-  height: 100em;
+  /* height: 150em; */
   padding: 0 2em;
+}
 
+.book-wrapper-rentabook {
+  max-width: 99% !important;
+  margin: 0 auto;
+  height: 55em;
+  padding: 0 2em;
 }
 
 .book-wrapper2 {
@@ -223,6 +257,7 @@ body {
 
 .book-box img {
   width: 8em;
+  height: 8em;
   margin: 0.5em;
   border-radius: 7%;
 }
@@ -236,12 +271,13 @@ body {
 
 .book-box img:hover,
 .latest-book-box img:hover {
-  border-radius: 13% !important;
+  border-radius: 10% !important;
   background-color: white !important;
   transition: 0.1s;
   opacity: 0.6;
   background-color: #ffffff;
   cursor: pointer;
+
 }
 
 .text-box h1 {
@@ -272,4 +308,25 @@ body {
 
 
 
-/* ALL BOOKS */
+/* DETAILS */
+
+.details-wrapper {
+  background-color: white !important;
+  height: 30em;
+}
+
+.details-wrapper img {
+  margin-right: 4em;
+  width: 18em;
+  height: 18em;
+  border-radius: 6%;
+}
+
+
+@media screen and (max-width: 768px) {
+  .details-wrapper img {
+    margin-right: 2em;
+    width: 13em;
+    height: 13em;
+  }
+}

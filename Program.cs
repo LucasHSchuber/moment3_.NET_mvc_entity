@@ -1,7 +1,16 @@
+using Microsoft.EntityFrameworkCore;
+using moment3_mvc_entity.Controllers;
+// using moment3_mvc_entity.Data;
+using moment3_mvc_entity.Models;
+using Microsoft.Extensions.DependencyInjection;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// Db connections
+builder.Services.AddDbContext<AppDbContext>(options =>
+options.UseSqlite(builder.Configuration.GetConnectionString("DefaultDbConnection")));
 
 var app = builder.Build();
 

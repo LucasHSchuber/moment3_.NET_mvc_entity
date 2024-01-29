@@ -1,0 +1,88 @@
+@model IEnumerable<moment3_mvc_entity.Models.Book>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+
+
+<div class="book-wrapper mt-2">
+    <div class="book-box d-flex justify-content-around">
+        @foreach (var item in Model.Take(10))
+        {
+            <a asp-action="Details" asp-route-id="@item.BookId"><img
+                    src="imgupload/@Html.DisplayFor(modelItem => item.ImageName)" alt="img @item.BookId"></a>
+        }
+    </div>
+
+    <div class="book-box d-flex justify-content-around">
+        @foreach (var item in Model.TakeLast(10))
+        {
+            <a asp-action="Details" asp-route-id="@item.BookId"><img
+                    src="imgupload/@Html.DisplayFor(modelItem => item.ImageName)" alt="img @item.BookId"></a>
+        }
+    </div>
+
+    <div class="text-box" style="margin-top:6em">
+        <h1><span style="color:red;">C</span>ollection of all my books</h1>
+        <p>Rent a book for free and enjoy reading for a month</p>
+        <button class="btn" onclick="rentabook()">Rent a book</button>
+        <h2 class="mt-5">My latest books</h2>
+    </div>
+
+    <div class="latest-book-box d-flex justify-content-around mt-4">
+        @foreach (var item in Model.Take(10))
+        {
+            <img src="imgupload/@Html.DisplayFor(modelItem => item.ImageName)" alt="">
+        }
+    </div>
+
+</div>
+
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AuthorName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImageName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AuthorName)
+                </td>
+                <td>
+                    <a href="imgupload/@Html.DisplayFor(modelItem => item.ImageName)"
+                        target="_blank">@Html.DisplayFor(modelItem => item.ImageName)</a>
+                    <img style="width:4em;height:4em;border-radius:50%;"
+                        src="imgupload/@Html.DisplayFor(modelItem => item.ImageName)">
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.BookId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.BookId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.BookId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

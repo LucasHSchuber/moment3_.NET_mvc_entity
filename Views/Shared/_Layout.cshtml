@@ -55,6 +55,10 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Rentabook">Rent
                                 a book</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Book"
+                                asp-action="Index">Index</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -66,12 +70,38 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    @* <footer class="border-top footer text-muted">
         <div class="container mt-5 footer-box">
-            <a class="navbar-brand-footer" asp-area="" asp-controller="Home" asp-action="Index">Bookie</a>
-            <p>&copy; 2024 - moment2_mvc </p>
+            <div>
+                <a class="navbar-brand-footer" asp-area="" asp-controller="Home" asp-action="Index">Bookie</a>
+                <p>&copy; 2024 - moment2_mvc </p>
+            </div>
+
+            <ul class="footer-nav d-flex justify-content-center">
+                <li class="footer-nav-item">
+                    <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                </li>
+                <li class="footer-nav-item">
+                    <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Allbooks">All
+                        books</a>
+                </li>
+                <li class="footer-nav-item">
+                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Rentabook">Rent
+                        a book</a>
+                </li>
+            </ul>
+
+            <hr>
+
+            <div class="socials d-flex justify-content-center my-5">
+                <i title="Facebook" class="fa-brands fa-1x fa-facebook-f"></i>
+                <i title="Instagram" class="fa-brands fa-1x fa-instagram mx-5"></i>
+                <i title="X" class="fa-brands fa-1x fa-x-twitter"></i>
+            </div>
+
         </div>
-    </footer>
+    </footer> *@
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
