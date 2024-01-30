@@ -6,15 +6,15 @@
 
 
 <div class="details-wrapper mt-2">
-    <div class="details-box container d-flex pt-5">
+    <div class="details-box container d-flex ">
         <div class="img-container">
             <img src="~/imgupload/@Model.ImageName" alt="@Html.DisplayFor(model => model.BookId)">
         </div>
         <div class="content-container">
-            <h1>@Html.DisplayFor(model => model.Title)</h1>
+            <h3>@Html.DisplayFor(model => model.Title)</h3>
             <hr>
             <div class="content-info-container px-2 d-flex align-items-center" style="margin:-0.5em 0 -0.9em 0;">
-                <h6><i class="fa-solid fa-pencil"></i> @Html.DisplayFor(model => model.AuthorName)</h6>
+                <h6><i class="fa-solid fa-pencil"></i> @ViewBag.AuthorName</h6>
                 <p class="mx-3 mt-2">|</p>
                 <h6 class="mx-2">@Html.DisplayFor(model => model.Grade)/5 <i class="fa-solid fa-star" style="color:#e3b302;"></i></h6>
                 <p class="mx-3 mt-2">|</p>

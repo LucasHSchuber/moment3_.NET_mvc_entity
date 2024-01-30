@@ -26,15 +26,20 @@
         <a asp-action="Create">Create New</a>
     </p>
 
-    <div class="text-box" style="margin-top:6em">
+    <div class="text-box" style="margin:5em 0;">
         <h1><span style="color:red;">C</span>ollection of all my books</h1>
         <p>Rent a book for free and enjoy reading for it a month</p>
         <button class="btn" onclick="rentabook()"><a asp-action="Rentabook" asp-controller="Home">Rent a
                 book</a></button>
+    </div>
+
+
+    <div class="text-box">
         <h2 class="mt-5">My latest books</h2>
     </div>
 
     <div class="latest-book-box d-flex justify-content-around mt-4">
+
         @{
             //storing top 5 books by grade in top10books var
             var latestbooks = Model.OrderByDescending(b => b.Created).Take(6);
@@ -53,9 +58,9 @@
     <div class="latest-book-box d-flex justify-content-around mt-4">
         @{
             //storing top 5 books by grade in top10books var
-            var top5books = Model.OrderByDescending(b => b.Grade).Take(6);
+            var top6books = Model.OrderByDescending(b => b.Grade).Take(6);
         }
-        @foreach (var item in top5books)
+        @foreach (var item in top6books)
         {
             <a asp-action="Details" asp-route-id="@item.BookId"><img
                     src="imgupload/@Html.DisplayFor(modelItem => item.ImageName)" alt="img @item.BookId"></a>
@@ -73,7 +78,8 @@
 
     <div class="author-box d-flex justify-content-around mt-4">
         <div class="author-item">
-            <img src="~/images/alex.jpg" alt="img">
+            <a asp-action="BooksByAuthor" asp-controller="Author" asp-route-authorId="1"><img src="~/images/alex.jpg"
+                    alt="img"></a>
             <p>Alex Schulman</p>
         </div>
         <div class="author-item">
@@ -81,11 +87,13 @@
             <p>Majgul Axelsson</p>
         </div>
         <div class="author-item">
-            <img src="~/images/david.jpg" alt="img">
+            <a asp-action="BooksByAuthor" asp-controller="Author" asp-route-authorId="2"><img src="~/images/david.jpg"
+                    alt="img"></a>
             <p>David Lagercrantz</p>
         </div>
         <div class="author-item">
-            <img src="~/images/karin.jpg" alt="img">
+            <a asp-action="BooksByAuthor" asp-controller="Author" asp-route-authorId="7"><img src="~/images/karin.jpg"
+                    alt="img"></a>
             <p>Karin Smirnoff</p>
         </div>
         <div class="author-item">
@@ -111,6 +119,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.ImageName)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AuthorId)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -122,7 +133,7 @@
                     @Html.DisplayFor(modelItem => item.Title)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.AuthorName)
+                    @Html.DisplayFor(modelItem => item.Author)
                 </td>
                 <td>
                     <a href="imgupload/@Html.DisplayFor(modelItem => item.ImageName)"
@@ -131,8 +142,11 @@
                         src="imgupload/@Html.DisplayFor(modelItem => item.ImageName)">
                 </td>
                 <td>
+                    @Html.DisplayFor(modelItem => item.Author.AuthorId)
+                </td>
+                <td>
                     <a asp-action="Edit" asp-route-id="@item.BookId">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.BookId">Details</a> |
+                    <a asp-action="Details" asp-route-id="@item.BookId" asp-route-AuthorId="@item.AuthorId">Details</a> |
                     <a asp-action="Delete" asp-route-id="@item.BookId">Delete</a>
                 </td>
             </tr>

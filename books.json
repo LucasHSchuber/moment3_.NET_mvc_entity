@@ -1,0 +1,197 @@
+[
+    {
+        "stmt": "SELECT * FROM Book;",
+        "header": [
+            "BookId",
+            "AuthorName",
+            "Created",
+            "Description",
+            "Genre",
+            "Grade",
+            "ImageName",
+            "Title"
+        ],
+        "rows": [
+            [
+                "6",
+                "sdfsadfsadf",
+                "0001-01-01 00:00:00",
+                "NULL",
+                "NULL",
+                "0.0",
+                "book124510644.jpg",
+                "dfsdfaf"
+            ],
+            [
+                "14",
+                "John Steinbeck",
+                "2024-01-30 15:32:29.503939",
+                " It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                "Adventue / Drama",
+                "3.0",
+                "book424322950.jpg",
+                "East of eden"
+            ],
+            [
+                "15",
+                "sdfsf",
+                "0001-01-01 00:00:00",
+                "NULL",
+                "NULL",
+                "0.0",
+                "book224011683.jpg",
+                "sdfsaf"
+            ],
+            [
+                "17",
+                "Markus Zusak",
+                "0001-01-01 00:00:00",
+                "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock",
+                "Drama / Historia",
+                "4.0",
+                "book324351445.jpg",
+                "Boktjuven"
+            ],
+            [
+                "19",
+                "Alex Schulman",
+                "0001-01-01 00:00:00",
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                "Drama / Kärlek",
+                "4.0",
+                "book124052541.jpg",
+                "Bränn alla mina brev"
+            ],
+            [
+                "20",
+                "Hans Rosling",
+                "0001-01-01 00:00:00",
+                "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.",
+                "Fact ",
+                "3.0",
+                "book524261678.jpg",
+                "Factfulness"
+            ],
+            [
+                "21",
+                "Alex Schulman",
+                "0001-01-01 00:00:00",
+                "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham",
+                "Drama / Historia",
+                "4.0",
+                "book724105381.jpg",
+                "Malma station"
+            ],
+            [
+                "22",
+                "Yuval Noah",
+                "0001-01-01 00:00:00",
+                "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham",
+                "History / Fact",
+                "5.0",
+                "book824115580.jpg",
+                "Sapiens"
+            ],
+            [
+                "23",
+                "Delia Owens",
+                "0001-01-01 00:00:00",
+                "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham",
+                "Romance / Drama",
+                "4.0",
+                "book624125273.jpg",
+                "Där kräftorna sjunger"
+            ],
+            [
+                "24",
+                "Karin Smirnoff",
+                "2024-01-30 12:22:53.883933",
+                "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text",
+                "Drama",
+                "4.0",
+                "book924225389.jpg",
+                "Sockerormen"
+            ],
+            [
+                "25",
+                "Selma Lagerlöf",
+                "2024-01-30 12:33:22.932981",
+                "Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.",
+                "Drama / Kärlek",
+                "4.0",
+                "book1024332305.jpg",
+                "Jerusalem"
+            ],
+            [
+                "26",
+                "Majgul Axelsson",
+                "2024-01-30 13:19:31.688327",
+                "Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+                "Drama / Kärlek",
+                "3.0",
+                "book1124193175.jpg",
+                "Svalors flykt"
+            ],
+            [
+                "27",
+                "David Lagercrantz",
+                "2024-01-30 13:20:00.181267",
+                "Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+                "Action / Drama / Thirller",
+                "5.0",
+                "book1224200018.jpg",
+                "Millenium"
+            ],
+            [
+                "28",
+                "Miguel de Cervantes",
+                "2024-01-30 15:27:18.025523",
+                " It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                "History / Drama",
+                "4.0",
+                "book1324271811.jpg",
+                "Don Quixote"
+            ],
+            [
+                "29",
+                "David Copperfield",
+                "2024-01-30 15:27:57.531585",
+                " It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                "Adventue / Drama",
+                "5.0",
+                "book1424275753.jpg",
+                "Charles Dickens"
+            ],
+            [
+                "30",
+                "Douglas Adam",
+                "2024-01-30 15:28:42.854642",
+                " It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                "Adventue / Drama / Sci-fi",
+                "5.0",
+                "book1524284285.jpg",
+                "Hitchhiker's guide to the galaxy"
+            ],
+            [
+                "31",
+                "Paulo Coelho",
+                "2024-01-30 15:29:09.516393",
+                " It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                "Adventue / Drama",
+                "4.0",
+                "book1624290951.jpg",
+                "Alkemisten"
+            ],
+            [
+                "32",
+                "Test",
+                "2024-01-30 15:29:09.516393",
+                " It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                "Adventue / Drama",
+                "4.0",
+                "book1624290951.jpg",
+                "Test1"
+            ]
+        ]
+    }
+]

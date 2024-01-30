@@ -1,0 +1,83 @@
+@{
+    ViewData["Title"] = "BooksByAuthor";
+}
+
+
+<div class="details-wrapper mt-2 ">
+
+    <div class="container">
+        <h2 class="pt-5">@ViewBag.AuthorName</h2>
+        <hr class="hr">
+        <p class="py-2">@ViewBag.Bio</p>
+        <hr class="hr">
+    </div>
+
+
+    <div class="author-book-box container py-4">
+
+        <h5>All books by @ViewBag.AuthorName</h5>
+
+        <div class="card-deck row py-4">
+            @foreach (var book in Model)
+            {
+
+                <div class="card col-md-2 mb-4 mx-2">
+                    <img src="~/imgupload/@book.ImageName" class="card-img-top" alt="Book Image"
+                        style="width: 10em; height: 10em;">
+                    <div class="card-body">
+                        <div class="card-body-title">
+                            <h6>@(string.IsNullOrEmpty(book.Title) ? book.Title : (book.Title.Length > 25 ?
+                                     $"{book.Title.Substring(0, 25)}..." : book.Title))</h6>
+                        </div>
+                        <div class="card-body-grade-genre d-flex justify-content-between ">
+                            <p class="card-text">@book.Grade/5<i class="fa-solid fa-star" style="color:#e3b302;"></i></p>
+                            <p class="card-text">@book.Genre</p>
+                        </div>
+                        <!-- Add other properties as needed -->
+                    </div>
+                </div>
+
+            }
+        </div>
+    </div>
+</div>
+
+<style>
+    .details-wrapper {
+        padding: 0 8em 5em 8em;
+    }
+
+    .card {
+        width: 10.5em !important;
+        height: fit-content;
+    }
+
+    .card img {
+        margin-left: -0.58em;
+        margin-top: 0.2em;
+    }
+
+    .card-body {
+        margin: 0 -0.9em !important;
+    }
+
+    .card-body-title {
+        height: 2.5em;
+    }
+    .card-body-grade-genre{
+        margin-top: 1.5em;
+        margin-bottom: -1.2em;
+    }
+
+    .card-body p {
+        font-size: 0.7em;
+    }
+     .card-body h6 {
+        font-size: 0.9em;
+        font-weight: 500;
+    }
+
+    .hr {
+        color: rgb(144, 144, 144);
+    }
+</style>

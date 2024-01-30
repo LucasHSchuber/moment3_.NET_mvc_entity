@@ -25,11 +25,16 @@ namespace moment3_mvc_entity.Controllers
         // GET: Book
         public async Task<IActionResult> Index()
         {
+
             return View(await _context.Book.ToListAsync());
         }
+        // public async Task<IActionResult> Index()
+        // {
+        //     return View(await _context.Book.ToListAsync());
+        // }
 
         // GET: Book/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(int? id, int? AuthorId)
         {
             if (id == null)
             {
@@ -43,12 +48,20 @@ namespace moment3_mvc_entity.Controllers
                 return NotFound();
             }
 
+            var author = await _context.Book
+             .Include(b => b.Author)
+             .FirstOrDefaultAsync(m => m.BookId == id);
+
+            ViewBag.AuthorName = author.Author?.Name;
+
+
             return View(book);
         }
 
         // GET: Book/Create
         public IActionResult Create()
         {
+            ViewData["AuthorId"] = new SelectList(_context.Author, "AuthorId", "Name");
             return View();
         }
 
@@ -57,10 +70,31 @@ namespace moment3_mvc_entity.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("BookId,Title,AuthorName,ImageFile,Description,Grade,Genre")] Book book)
+        public async Task<IActionResult> Create([Bind("BookId,Title,AuthorName,ImageFile,Description,Grade,Genre,AuthorId")] Book book)
         {
             if (ModelState.IsValid)
             {
+
+
+
+                // Check if the selected author exists
+                Author author = _context.Author.FirstOrDefault(a => a.AuthorId == book.AuthorId);
+
+                if (author == null)
+                {
+                    // Handle the case where the selected author doesn't exist (you may want to add appropriate error handling)
+                    ModelState.AddModelError("AuthorId", "Selected author does not exist.");
+                    ViewData["AuthorId"] = new SelectList(_context.Author, "AuthorId", "Name", book.AuthorId);
+                    return View(book);
+                }
+
+                // Set the Author property of the book
+                book.Author = author;
+
+
+
+
+
 
                 //check for image
                 if (book.ImageFile != null)
@@ -104,6 +138,9 @@ namespace moment3_mvc_entity.Controllers
             {
                 return NotFound();
             }
+
+            ViewData["AuthorId"] = new SelectList(_context.Author, "AuthorId", "Name");
+
             return View(book);
         }
 
@@ -112,7 +149,7 @@ namespace moment3_mvc_entity.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("BookId,Title,AuthorName,ImageFile,Description,Grade,Genre")] Book book)
+        public async Task<IActionResult> Edit(int id, [Bind("BookId,Title,AuthorName,ImageFile,Description,Grade,Genre, AuthorId")] Book book)
         {
             if (id != book.BookId)
             {
@@ -121,6 +158,27 @@ namespace moment3_mvc_entity.Controllers
 
             if (ModelState.IsValid)
             {
+
+
+
+
+                // Check if the selected author exists
+                Author author = _context.Author.FirstOrDefault(a => a.AuthorId == book.AuthorId);
+
+                if (author == null)
+                {
+                    // Handle the case where the selected author doesn't exist (you may want to add appropriate error handling)
+                    ModelState.AddModelError("AuthorId", "Selected author does not exist.");
+                    ViewData["AuthorId"] = new SelectList(_context.Author, "AuthorId", "Name", book.AuthorId);
+                    return View(book);
+                }
+
+                // Set the Author property of the book
+                book.Author = author;
+
+
+
+
 
 
                 //check for image

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace moment3_mvc_entity.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240130111812_FourthCreate")]
-    partial class FourthCreate
+    [Migration("20240130153108_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -19,10 +19,30 @@ namespace moment3_mvc_entity.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.1");
 
+            modelBuilder.Entity("moment3_mvc_entity.Models.Author", b =>
+                {
+                    b.Property<int>("AuthorId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Bio")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("AuthorId");
+
+                    b.ToTable("Author");
+                });
+
             modelBuilder.Entity("moment3_mvc_entity.Models.Book", b =>
                 {
                     b.Property<int>("BookId")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("AuthorId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("AuthorName")
@@ -37,8 +57,8 @@ namespace moment3_mvc_entity.Migrations
                     b.Property<string>("Genre")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("Grade")
-                        .HasColumnType("INTEGER");
+                    b.Property<float>("Grade")
+                        .HasColumnType("REAL");
 
                     b.Property<string>("ImageName")
                         .HasColumnType("TEXT");
@@ -48,7 +68,25 @@ namespace moment3_mvc_entity.Migrations
 
                     b.HasKey("BookId");
 
+                    b.HasIndex("AuthorId");
+
                     b.ToTable("Book");
+                });
+
+            modelBuilder.Entity("moment3_mvc_entity.Models.Book", b =>
+                {
+                    b.HasOne("moment3_mvc_entity.Models.Author", "Author")
+                        .WithMany("Books")
+                        .HasForeignKey("AuthorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Author");
+                });
+
+            modelBuilder.Entity("moment3_mvc_entity.Models.Author", b =>
+                {
+                    b.Navigation("Books");
                 });
 #pragma warning restore 612, 618
         }
