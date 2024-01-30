@@ -29,7 +29,8 @@
     <div class="text-box" style="margin-top:6em">
         <h1><span style="color:red;">C</span>ollection of all my books</h1>
         <p>Rent a book for free and enjoy reading for it a month</p>
-        <button class="btn" onclick="rentabook()">Rent a book</button>
+        <button class="btn" onclick="rentabook()"><a asp-action="Rentabook" asp-controller="Home">Rent a
+                book</a></button>
         <h2 class="mt-5">My latest books</h2>
     </div>
 
@@ -46,7 +47,7 @@
     </div>
 
     <div class="text-box">
-        <h2 class="mt-5">My best books</h2>
+        <h2 class="mt-5">My top 5 books</h2>
     </div>
 
     <div class="latest-book-box d-flex justify-content-around mt-4">
@@ -64,9 +65,41 @@
 </div>
 
 
+<div class="book-wrapper2 mt-5">
+
+    <div class="text-box2">
+        <h2 class="mt-5">My 5 favorite authors</h2>
+    </div>
+
+    <div class="author-box d-flex justify-content-around mt-4">
+        <div class="author-item">
+            <img src="~/images/alex.jpg" alt="img">
+            <p>Alex Schulman</p>
+        </div>
+        <div class="author-item">
+            <img src="~/images/majgull.jpg" alt="img">
+            <p>Majgul Axelsson</p>
+        </div>
+        <div class="author-item">
+            <img src="~/images/david.jpg" alt="img">
+            <p>David Lagercrantz</p>
+        </div>
+        <div class="author-item">
+            <img src="~/images/karin.jpg" alt="img">
+            <p>Karin Smirnoff</p>
+        </div>
+        <div class="author-item">
+            <img src="~/images/sigge.jpg" alt="img">
+            <p>Sigge Eklund</p>
+        </div>
+
+    </div>
+</div>
 
 
-<table class="table">
+
+
+<table class=" table">
     <thead>
         <tr>
             <th>

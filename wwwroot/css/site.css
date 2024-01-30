@@ -229,8 +229,8 @@ body {
 .book-wrapper2 {
   max-width: 100% !important;
   margin: 0 auto;
-  height: 80em !important;
-  padding: 0 2em;
+  /* height: 80em !important; */
+  padding: 2em 2em 5em 2em;
   background-color: white !important;
 }
 
@@ -240,7 +240,7 @@ body {
 
 .book-box2,
 .latest-book-box2 {
-  color: black;
+  color: #0e0e0e;
   max-width: 100%;
   overflow: hidden;
   display: flex;
@@ -270,9 +270,18 @@ body {
   border-radius: 4%;
 }
 
+.author-box img {
+  width: 15em;
+  height: 20em;
+  max-width: 15em;
+  margin: 0.5em;
+  border-radius: 4%;
+}
+
 .book-box img:hover,
-.latest-book-box img:hover {
-  border-radius: 10% !important;
+.latest-book-box img:hover,
+.author-box img:hover {
+  border-radius: 9% !important;
   background-color: white !important;
   transition: 0.1s;
   opacity: 0.6;
@@ -295,6 +304,11 @@ body {
 
 .text-box p {
   color: white;
+}
+
+.author-item p {
+  font-weight: 600;
+  text-align: center;
 }
 
 
@@ -323,7 +337,8 @@ body {
 .content-container {
   padding-left: 2em;
 }
-.content-info-container h6{
+
+.content-info-container h6 {
   font-weight: 500;
 }
 

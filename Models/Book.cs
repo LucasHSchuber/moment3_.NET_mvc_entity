@@ -15,9 +15,8 @@ namespace moment3_mvc_entity.Models
 
         public string? Description { get; set; }
 
-        // [MinLength(1)]
-        // [MaxLength(5)]
-        // [Range(0.0, 5.0)]
+        [Range(0.0, 5.0, ErrorMessage = "Please enter a valid grade between 0.0 and 5.0.",
+               ConvertValueInInvariantCulture = true)]
         public float Grade { get; set; }
 
         public string? Genre { get; set; }
