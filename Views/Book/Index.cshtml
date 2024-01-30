@@ -4,11 +4,6 @@
     ViewData["Title"] = "Index";
 }
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-
-
 
 <div class="book-wrapper mt-2">
     <div class="book-box d-flex justify-content-around">
@@ -27,17 +22,42 @@
         }
     </div>
 
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+
     <div class="text-box" style="margin-top:6em">
         <h1><span style="color:red;">C</span>ollection of all my books</h1>
-        <p>Rent a book for free and enjoy reading for a month</p>
+        <p>Rent a book for free and enjoy reading for it a month</p>
         <button class="btn" onclick="rentabook()">Rent a book</button>
         <h2 class="mt-5">My latest books</h2>
     </div>
 
     <div class="latest-book-box d-flex justify-content-around mt-4">
-        @foreach (var item in Model.Take(10))
+        @{
+            //storing top 5 books by grade in top10books var
+            var latestbooks = Model.OrderByDescending(b => b.Created).Take(5);
+        }
+        @foreach (var item in latestbooks)
         {
-            <img src="imgupload/@Html.DisplayFor(modelItem => item.ImageName)" alt="">
+            <a asp-action="Details" asp-route-id="@item.BookId"><img
+                    src="imgupload/@Html.DisplayFor(modelItem => item.ImageName)" alt="img @item.BookId"></a>
+        }
+    </div>
+
+    <div class="text-box">
+        <h2 class="mt-5">My best books</h2>
+    </div>
+
+    <div class="latest-book-box d-flex justify-content-around mt-4">
+        @{
+            //storing top 5 books by grade in top10books var
+            var top5books = Model.OrderByDescending(b => b.Grade).Take(5);
+        }
+        @foreach (var item in top5books)
+        {
+            <a asp-action="Details" asp-route-id="@item.BookId"><img
+                    src="imgupload/@Html.DisplayFor(modelItem => item.ImageName)" alt="img @item.BookId"></a>
         }
     </div>
 

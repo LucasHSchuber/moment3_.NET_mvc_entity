@@ -57,7 +57,7 @@ namespace moment3_mvc_entity.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("BookId,Title,AuthorName,ImageFile")] Book book)
+        public async Task<IActionResult> Create([Bind("BookId,Title,AuthorName,ImageFile,Description,Grade,Genre")] Book book)
         {
             if (ModelState.IsValid)
             {
@@ -112,7 +112,7 @@ namespace moment3_mvc_entity.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("BookId,Title,AuthorName,ImageName")] Book book)
+        public async Task<IActionResult> Edit(int id, [Bind("BookId,Title,AuthorName,ImageFile,Description,Grade,Genre")] Book book)
         {
             if (id != book.BookId)
             {
@@ -121,6 +121,26 @@ namespace moment3_mvc_entity.Controllers
 
             if (ModelState.IsValid)
             {
+
+
+                //check for image
+                if (book.ImageFile != null)
+                {
+                    //generate new file name
+                    string fileName = Path.GetFileNameWithoutExtension(book.ImageFile.FileName);
+                    string extension = Path.GetExtension(book.ImageFile.FileName);
+
+                    book.ImageName = fileName = fileName.Replace(" ", String.Empty) + DateTime.Now.ToString("yymmssff") + extension;
+
+                    string path = Path.Combine(wwwRootPath + "/imgupload", fileName);
+
+                    //store in file system
+                    using (var fileStream = new FileStream(path, FileMode.Create))
+                    {
+                        await book.ImageFile.CopyToAsync(fileStream);
+                    }
+                }
+
                 try
                 {
                     _context.Update(book);

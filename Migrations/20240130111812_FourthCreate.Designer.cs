@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -9,9 +10,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace moment3_mvc_entity.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240130111812_FourthCreate")]
+    partial class FourthCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.1");
@@ -34,8 +37,8 @@ namespace moment3_mvc_entity.Migrations
                     b.Property<string>("Genre")
                         .HasColumnType("TEXT");
 
-                    b.Property<float>("Grade")
-                        .HasColumnType("REAL");
+                    b.Property<int>("Grade")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("ImageName")
                         .HasColumnType("TEXT");

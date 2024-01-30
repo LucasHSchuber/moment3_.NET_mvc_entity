@@ -6,18 +6,28 @@
 
 
 <div class="details-wrapper mt-2">
-
-    <div class="container d-flex pt-5">
-        <div>
+    <div class="details-box container d-flex pt-5">
+        <div class="img-container">
             <img src="~/imgupload/@Model.ImageName" alt="@Html.DisplayFor(model => model.BookId)">
         </div>
-        <div>
+        <div class="content-container">
             <h1>@Html.DisplayFor(model => model.Title)</h1>
-            <h6>@Html.DisplayFor(model => model.AuthorName)</h6>
+            <hr>
+            <div class="content-info-container px-2 d-flex align-items-center" style="margin:-0.5em 0 -0.9em 0;">
+                <h6><i class="fa-solid fa-pencil"></i> @Html.DisplayFor(model => model.AuthorName)</h6>
+                <p class="mx-3 mt-2">|</p>
+                <h6 class="mx-2">@Html.DisplayFor(model => model.Grade)/5 <i class="fa-solid fa-star" style="color:#e3b302;"></i></h6>
+                <p class="mx-3 mt-2">|</p>
+                <h6>@Html.DisplayFor(model => model.Genre)</h6>
+            </div>
+            <hr>
+            <p>@Html.DisplayFor(model => model.Description)</p>
 
             <div>
-                <a asp-action="Edit" asp-route-id="@Model?.BookId">Edit</a> |
-                <a asp-action="Index">Back to List</a>
+                @* <a asp-action="Edit" asp-route-id="@Model?.BookId">Edit</a> |
+                <a asp-action="Delete" asp-route-id="@Model?.BookId">Delete</a> | *@
+                 <button><a asp-controller="Home" asp-action="Rentabook" asp-route-id="@Model?.BookId"><i class="fa-solid fa-house"></i> Rent book</a></button> 
+                <button><a asp-action="Index"><i class="fa-solid fa-caret-left"></i> Back</a></button>
             </div>
         </div>
     </div>
