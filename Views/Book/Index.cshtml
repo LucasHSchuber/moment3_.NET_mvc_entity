@@ -7,7 +7,7 @@
 
 <div class="book-wrapper mt-2">
     <div class="book-box d-flex justify-content-around">
-        @foreach (var item in Model.Take(10))
+        @foreach (var item in Model.Take(12))
         {
             <a asp-action="Details" asp-route-id="@item.BookId"><img
                     src="imgupload/@Html.DisplayFor(modelItem => item.ImageName)" alt="img @item.BookId"></a>
@@ -15,7 +15,7 @@
     </div>
 
     <div class="book-box d-flex justify-content-around">
-        @foreach (var item in Model.TakeLast(10))
+        @foreach (var item in Model.TakeLast(12))
         {
             <a asp-action="Details" asp-route-id="@item.BookId"><img
                     src="imgupload/@Html.DisplayFor(modelItem => item.ImageName)" alt="img @item.BookId"></a>
@@ -37,7 +37,7 @@
     <div class="latest-book-box d-flex justify-content-around mt-4">
         @{
             //storing top 5 books by grade in top10books var
-            var latestbooks = Model.OrderByDescending(b => b.Created).Take(5);
+            var latestbooks = Model.OrderByDescending(b => b.Created).Take(6);
         }
         @foreach (var item in latestbooks)
         {
@@ -47,13 +47,13 @@
     </div>
 
     <div class="text-box">
-        <h2 class="mt-5">My top 5 books</h2>
+        <h2 class="mt-5">My top books</h2>
     </div>
 
     <div class="latest-book-box d-flex justify-content-around mt-4">
         @{
             //storing top 5 books by grade in top10books var
-            var top5books = Model.OrderByDescending(b => b.Grade).Take(5);
+            var top5books = Model.OrderByDescending(b => b.Grade).Take(6);
         }
         @foreach (var item in top5books)
         {

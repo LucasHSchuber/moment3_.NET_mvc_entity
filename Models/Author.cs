@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace moment3_mvc_entity.Models
 {
@@ -10,9 +11,10 @@ namespace moment3_mvc_entity.Models
         //properties
         public int AuthorId { get; set; }
         public string? Name { get; set; }
+        public string? Bio { get; set; }
 
-        // Navigation property
         public List<Book>? Books { get; set; }
+
 
     }
 

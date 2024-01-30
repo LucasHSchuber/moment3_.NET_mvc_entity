@@ -32,8 +32,9 @@ namespace moment3_mvc_entity.Models
         public IFormFile? ImageFile { get; set; }
 
 
-
-        //lägg till genre och betyg och beskrivning
+        [ForeignKey("Author")]
+        public int AuthorId { get; set; }
+        public Author? Author { get; set; }
     }
 
 
