@@ -46,6 +46,8 @@ namespace moment3_mvc_entity.Controllers
                     || b.Genre.ToLower().Contains(searchString.ToLower()))
                 .ToList();
 
+                ViewBag.searchString = searchString;
+
                 return View(searchResults);
             }
 

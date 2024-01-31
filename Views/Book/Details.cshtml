@@ -15,7 +15,8 @@
             <hr>
             <div class="content-info-container px-2 d-flex align-items-center" style="margin:-0.5em 0 -0.9em 0;">
                 <a asp-action="BooksByAuthor" asp-controller="Author" asp-route-authorId="@ViewBag.AuthorId">
-                    <h6><i class="fa-solid fa-pencil mx-1" style="color:#0e0e0e;"></i><span>@ViewBag.AuthorName </span></h6>
+                    <h6><i class="fa-solid fa-pencil mx-1" style="color:#0e0e0e;"></i><span>@ViewBag.AuthorName </span>
+                    </h6>
                 </a>
                 <p class="mx-3 mt-2">|</p>
                 <h6 class="mx-2">@Html.DisplayFor(model => model.Grade)/5 <i class="fa-solid fa-star"
@@ -27,10 +28,10 @@
             <p>@Html.DisplayFor(model => model.Description)</p>
 
             <div class="mt-4">
-                @* <a asp-action="Edit" asp-route-id="@Model?.BookId">Edit</a> |
-                <a asp-action="Delete" asp-route-id="@Model?.BookId">Delete</a> | *@
-                <a class="details-btn" asp-action="Index"><i class="fa-solid fa-1x fa-caret-left"></i>&nbsp;Back</a>
-                <a class="details-btn" asp-controller="Home" asp-action="Rentabook" asp-route-id="@Model?.BookId"><i
+                <a class="details-btn" onclick="history.back();">
+                    <i class="fa-solid fa-1x fa-caret-left"></i>&nbsp;Back
+                </a>
+                <a class="details-btn mx-2" asp-controller="Home" asp-action="Rentabook" asp-route-id="@Model?.BookId"><i
                         class="fa-solid fa-sm fa-share"></i>&nbsp;Rent book</a>
             </div>
         </div>
@@ -40,5 +41,5 @@
 
 
 <style>
- 
+
 </style>

@@ -29,7 +29,8 @@
     <div class="text-box" style="margin:5em 0;">
         <h1><span style="color:red;">C</span>ollection of all my books</h1>
         <p>Rent a book for free and enjoy reading for it a month</p>
-        <button class="btn" onclick="rentabook()"><a asp-action="Rentabook" asp-controller="Home">Rent a
+        <button class="btn" onclick="rentabook()"><a class="custom-link" asp-action="Rentabook"
+                asp-controller="Home">Rent a
                 book</a></button>
     </div>
 
@@ -83,8 +84,8 @@
             <p>Alex Schulman</p>
         </div>
         <div class="author-item">
-            <a asp-action="BooksByAuthor" asp-controller="Author" asp-route-authorId="13"><img src="~/images/majgull.jpg"
-                    alt="img Majgull Axelsson"></a>
+            <a asp-action="BooksByAuthor" asp-controller="Author" asp-route-authorId="13"><img
+                    src="~/images/majgull.jpg" alt="img Majgull Axelsson"></a>
             <p>Majgul Axelsson</p>
         </div>
         <div class="author-item">
@@ -108,50 +109,63 @@
 
 
 
-
+@*
 <table class=" table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AuthorName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ImageName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AuthorId)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Title)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Author)
-                </td>
-                <td>
-                    <a href="imgupload/@Html.DisplayFor(modelItem => item.ImageName)"
-                        target="_blank">@Html.DisplayFor(modelItem => item.ImageName)</a>
-                    <img style="width:4em;height:4em;border-radius:50%;"
-                        src="imgupload/@Html.DisplayFor(modelItem => item.ImageName)">
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Author.AuthorId)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.BookId">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.BookId" asp-route-AuthorId="@item.AuthorId">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.BookId">Delete</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+<thead>
+<tr>
+<th>
+@Html.DisplayNameFor(model => model.Title)
+</th>
+<th>
+@Html.DisplayNameFor(model => model.AuthorName)
+</th>
+<th>
+@Html.DisplayNameFor(model => model.ImageName)
+</th>
+<th>
+@Html.DisplayNameFor(model => model.AuthorId)
+</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+@foreach (var item in Model)
+{
+<tr>
+<td>
+@Html.DisplayFor(modelItem => item.Title)
+</td>
+<td>
+@Html.DisplayFor(modelItem => item.Author)
+</td>
+<td>
+<a href="imgupload/@Html.DisplayFor(modelItem => item.ImageName)"
+target="_blank">@Html.DisplayFor(modelItem => item.ImageName)</a>
+<img style="width:4em;height:4em;border-radius:50%;"
+src="imgupload/@Html.DisplayFor(modelItem => item.ImageName)">
+</td>
+<td>
+@Html.DisplayFor(modelItem => item.Author.AuthorId)
+</td>
+<td>
+<a asp-action="Edit" asp-route-id="@item.BookId">Edit</a> |
+<a asp-action="Details" asp-route-id="@item.BookId" asp-route-AuthorId="@item.AuthorId">Details</a> |
+<a asp-action="Delete" asp-route-id="@item.BookId">Delete</a>
+</td>
+</tr>
+}
+</tbody>
+</table> *@
+
+
+
+<style>
+    .custom-link {
+        color: inherit;
+        text-decoration: none;
+    }
+      .custom-link:hover {
+        color: inherit;
+        text-decoration: none;
+    }
+</style>

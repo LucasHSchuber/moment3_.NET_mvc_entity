@@ -1,5 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
+
 
 namespace moment3_mvc_entity.Models
 {
@@ -8,16 +10,16 @@ namespace moment3_mvc_entity.Models
     {
 
         //properties
-
-        [Key]
         public int RentalId { get; set; }
-        public string? Name { get; set; }
-        public int? IdNumber { get; set; }
+        public DateTime RentDate { get; set; }
+        public DateTime? ReturnDate { get; set; }
+        public bool IsReturned { get; set; }
+        public string? RenterName { get; set; }
+        public string? RenterIdNumber { get; set; }
 
-        public DateTime RentalDate { get; set; } = DateTime.Now;
-        public DateTime ReturnDate { get; set; } = DateTime.Now.AddMonths(1);
-        public string? BookTitle { get; set; }
-
+        public int BookId { get; set; }
+        public Book? Book { get; set; } // Navigation property for the Book relationship
+        
     }
 
 

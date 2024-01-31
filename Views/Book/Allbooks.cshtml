@@ -8,7 +8,7 @@
 
 <div class="allbooks-wrapper mt-2">
 
-    <div class="author-book-box container">
+    <div class="container">
 
         <div class="search-wrapper">
             <h2 class="mb-5 pt-5">@ViewData["Title"]</h2>
@@ -22,6 +22,19 @@
             </form>
         </div>
 
+        <div>
+            <h6>
+                @if (ViewBag.searchString != null)
+                {
+                    <text>Search for "@ViewBag.searchString". <a asp-controller="Book" asp-action="Allbooks"> <span style="font-size:0.9em;">Remove search</span></a></text>
+                }
+                else
+                {
+                    <text></text>
+                }
+            </h6>
+        </div>
+
         <div class="card-deck row py-4">
             @{
                 var showManyBook = Model.Take(30);
@@ -29,30 +42,28 @@
             @foreach (var book in showManyBook)
             {
                 <div class="card col-md-2 mb-4 mx-2">
-                    <img src="~/imgupload/@book.ImageName" class="card-img-top" alt="Book Image"
-                        style="width: 10em; height: 10em;">
-                    <div class="card-body">
-                        <div class="card-body-title">
-                            <h6>@(string.IsNullOrEmpty(book.Title) ? book.Title : (book.Title.Length > 25 ?
-                                    $"{book.Title.Substring(0, 25)}..." : book.Title))</h6>
-
-
+                    <a asp-controller="Book" asp-action="Details" asp-route-id="@book.BookId" class="card-link">
+                        <img src="~/imgupload/@book.ImageName" class="card-img-top" alt="Book Image"
+                            style="width: 10em; height: 10em;">
+                        <div class="card-body">
+                            <div style="height:1.5em;">
+                                <p><i class="fa-solid fa-pencil " style="color:#0e0e0e;"></i> @book.Author?.Name</p>
+                            </div>
+                            <div class="card-body-title">
+                                <h6>@(string.IsNullOrEmpty(book.Title) ? book.Title : (book.Title.Length > 25 ?
+                                        $"{book.Title.Substring(0, 25)}..." : book.Title))</h6>
+                            </div>
+                            <div class="card-body-grade-genre d-flex justify-content-between">
+                                <p class="card-text">@book.Grade/5<i class="fa-solid fa-star" style="color:#e3b302;"></i>
+                                </p>
+                                <p class="card-text">@book.Genre</p>
+                            </div>
                         </div>
-                        <div class="card-body-grade-genre d-flex justify-content-between">
-                            <p>@book.Author?.Name</p>
-                            <p class="card-text">@book.Grade/5<i class="fa-solid fa-star" style="color:#e3b302;"></i>
-                            </p>
-                            <p class="card-text">@book.Genre</p>
-                        </div>
-                        <!-- Add other properties as needed -->
-                    </div>
+                    </a>
                 </div>
             }
         </div>
-
-
     </div>
-
 </div>
 
 
@@ -82,14 +93,34 @@
         padding: 0 8em 5em 8em;
     }
 
+    .card-link {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    .card-link:hover {
+        color: inherit;
+        text-decoration: none;
+    }
+
     .card {
         width: 10.5em !important;
         height: fit-content;
+        transition: 0.1s;
+    }
+
+    .card:hover {
+        border: 0.5px solid rgb(182, 182, 182);
+    }
+
+    .card:hover img {
+        padding: 0.1em;
     }
 
     .card img {
         margin-left: -0.58em;
         margin-top: 0.2em;
+        transition: 0.1s;
     }
 
     .card-body {
