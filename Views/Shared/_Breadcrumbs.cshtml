@@ -1,0 +1,19 @@
+<!-- _Breadcrumbs.cshtml -->
+
+@if (ViewContext.RouteData.Values["controller"] != null)
+{
+    <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        @* <li class="breadcrumb-item"><a href="/">Home</a></li> *@
+        <li class="breadcrumb-item">
+            <a href="@Url.Action("Book")">@ViewContext.RouteData.Values["controller"]</a>
+        </li>
+        @if (ViewContext.RouteData.Values["action"] != null)
+            {
+                <li class="breadcrumb-item active" aria-current="page">
+                    @ViewContext.RouteData.Values["action"]
+                </li>
+            }
+        </ol>
+    </nav>
+}

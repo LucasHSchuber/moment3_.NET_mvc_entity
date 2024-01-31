@@ -52,25 +52,41 @@ body {
 }
 
 .search-btn {
-  border-radius: 5%;
+  border-radius: 6%;
   margin-left: 0.5em;
   /* font-size: 1.1em; */
   height: 2.5em;
   padding: 0.4em 1.1em;
-  border: #e6e6e6 0.5px solid;
-  background-color: black;
-  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3);
-  color: #e6e6e6;
+  border: #0e0e0e 0.5px solid;
+  background-color: white;
+  box-shadow: 0px 0px 10px rgba(49, 49, 49, 0.3);
+  color: #0e0e0e;
   transition: 0.2s;
 }
 
 .search-btn:hover {
-  color: #ffffff;
-  border: #ffffff 0.5px solid;
+  color: #404040;
+  border: #404040 0.5px solid;
   box-shadow: 0px 0px 10px rgba(255, 255, 255, 0);
-
 }
 
+.details-btn {
+  border-radius: 5%;
+  height: 2.5em;
+  padding: 0.5em 1em;
+  border: #383838 0.5px solid;
+  background-color: inherit;
+  box-shadow: 0px 0px 10px rgba(157, 157, 157, 0.3);
+  color: #383838;
+  transition: 0.2s;
+  text-decoration: none;
+}
+
+.details-btn:hover {
+  color: #6b6b6b;
+  border: #6b6b6b 0.5px solid;
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0);
+}
 
 
 
@@ -344,6 +360,18 @@ body {
 
 .content-info-container h6 {
   font-weight: 500;
+  font-size: 0.9em;
+}
+
+.content-info-container a {
+  color: #0e0e0e;
+  text-decoration-thickness: 1px;
+  font-weight: 500;
+  transition: 0.1s;
+}
+
+.content-info-container a:hover {
+  color: red;
 }
 
 .details-wrapper img {
@@ -359,5 +387,22 @@ body {
     margin-right: 2em;
     width: 13em;
     height: 13em;
+  }
+}
+
+
+
+/* ALL BOOKS */
+
+.allbooks-wrapper {
+  background-color: white !important;
+  padding: 0 15em 15em 6em;
+  height: fit-content;
+}
+
+
+@media screen and (max-width: 768px) {
+  .allbooks-wrapper {
+    padding: 0 1em 5em 1em;
   }
 }

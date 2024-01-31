@@ -20,7 +20,7 @@ public class HomeController : Controller
     }
 
     [Route("/Bookie/Allbooks")]
-    public IActionResult Allbooks()
+    public IActionResult Allbooks2()
     {
         return View();
     }

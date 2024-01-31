@@ -25,13 +25,37 @@ namespace moment3_mvc_entity.Controllers
         // GET: Book
         public async Task<IActionResult> Index()
         {
-
             return View(await _context.Book.ToListAsync());
         }
         // public async Task<IActionResult> Index()
         // {
         //     return View(await _context.Book.ToListAsync());
         // }
+
+
+        // GET: All books
+        public async Task<IActionResult> Allbooks(string searchString)
+        {
+            //if A search in interface is made
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                var searchResults = _context.Book
+                .Include(b => b.Author)
+                .Where(b => b.Title.ToLower().Contains(searchString.ToLower())
+                    || b.Author.Name.ToLower().Contains(searchString.ToLower())
+                    || b.Genre.ToLower().Contains(searchString.ToLower()))
+                .ToList();
+
+                return View(searchResults);
+            }
+
+            //if NO search in interface is made
+            var allBooks = _context.Book
+                .Include(b => b.Author)
+                .ToList();
+            return View(allBooks);
+        }
+
 
         // GET: Book/Details/5
         public async Task<IActionResult> Details(int? id, int? AuthorId)
@@ -53,6 +77,7 @@ namespace moment3_mvc_entity.Controllers
              .FirstOrDefaultAsync(m => m.BookId == id);
 
             ViewBag.AuthorName = author.Author?.Name;
+            ViewBag.AuthorId = author.Author?.AuthorId;
 
 
             return View(book);

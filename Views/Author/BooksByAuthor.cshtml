@@ -13,7 +13,7 @@
     </div>
 
 
-    <div class="author-book-box container py-4">
+    <div class="container py-4">
 
         <h5>All books by @ViewBag.AuthorName</h5>
 
@@ -27,7 +27,7 @@
                     <div class="card-body">
                         <div class="card-body-title">
                             <h6>@(string.IsNullOrEmpty(book.Title) ? book.Title : (book.Title.Length > 25 ?
-                                     $"{book.Title.Substring(0, 25)}..." : book.Title))</h6>
+                                    $"{book.Title.Substring(0, 25)}..." : book.Title))</h6>
                         </div>
                         <div class="card-body-grade-genre d-flex justify-content-between ">
                             <p class="card-text">@book.Grade/5<i class="fa-solid fa-star" style="color:#e3b302;"></i></p>
@@ -64,7 +64,8 @@
     .card-body-title {
         height: 2.5em;
     }
-    .card-body-grade-genre{
+
+    .card-body-grade-genre {
         margin-top: 1.5em;
         margin-bottom: -1.2em;
     }
@@ -72,7 +73,8 @@
     .card-body p {
         font-size: 0.7em;
     }
-     .card-body h6 {
+
+    .card-body h6 {
         font-size: 0.9em;
         font-weight: 500;
     }

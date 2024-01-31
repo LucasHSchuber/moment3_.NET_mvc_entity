@@ -1,0 +1,128 @@
+﻿@model IEnumerable<moment3_mvc_entity.Models.Book>
+
+@{
+    ViewData["Title"] = "All books";
+}
+@* <h1>@ViewData["Title"]</h1> *@
+
+
+<div class="allbooks-wrapper mt-2">
+
+    <div class="author-book-box container">
+
+        <div class="search-wrapper">
+            <h2 class="mb-5 pt-5">@ViewData["Title"]</h2>
+            <div>
+                <h6>Search for book, author or genre</h6>
+            </div>
+            <form asp-controller="Book" asp-action="Allbooks" method="get" class="search-bar form-inline d-flex mb-5">
+                <input class="form-control mr-sm-2 mr-5" name="searchString" type="search" placeholder="Search"
+                    aria-label="Search">
+                <button class="search-btn my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+
+        <div class="card-deck row py-4">
+            @{
+                var showManyBook = Model.Take(30);
+            }
+            @foreach (var book in showManyBook)
+            {
+                <div class="card col-md-2 mb-4 mx-2">
+                    <img src="~/imgupload/@book.ImageName" class="card-img-top" alt="Book Image"
+                        style="width: 10em; height: 10em;">
+                    <div class="card-body">
+                        <div class="card-body-title">
+                            <h6>@(string.IsNullOrEmpty(book.Title) ? book.Title : (book.Title.Length > 25 ?
+                                    $"{book.Title.Substring(0, 25)}..." : book.Title))</h6>
+
+
+                        </div>
+                        <div class="card-body-grade-genre d-flex justify-content-between">
+                            <p>@book.Author?.Name</p>
+                            <p class="card-text">@book.Grade/5<i class="fa-solid fa-star" style="color:#e3b302;"></i>
+                            </p>
+                            <p class="card-text">@book.Genre</p>
+                        </div>
+                        <!-- Add other properties as needed -->
+                    </div>
+                </div>
+            }
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+
+@* CSS *@
+
+<style>
+    .search-wrapper {
+        color: #0e0e0e;
+    }
+
+    .search-bar {
+        width: 50%;
+
+    }
+
+    .search-bar input {
+        height: 2.5em;
+
+    }
+
+
+
+
+    .details-wrapper {
+        padding: 0 8em 5em 8em;
+    }
+
+    .card {
+        width: 10.5em !important;
+        height: fit-content;
+    }
+
+    .card img {
+        margin-left: -0.58em;
+        margin-top: 0.2em;
+    }
+
+    .card-body {
+        margin: 0 -0.9em !important;
+    }
+
+    .card-body-title {
+        height: 2.5em;
+    }
+
+    .card-body-grade-genre {
+        margin-top: 2em;
+        margin-bottom: -1.2em;
+    }
+
+    .card-body p {
+        font-size: 0.7em;
+    }
+
+    .card-body h6 {
+        font-size: 0.9em;
+        font-weight: 500;
+    }
+
+    .hr {
+        color: rgb(144, 144, 144);
+    }
+</style>
+
+
+@* JS *@
+
+<script>
+
+
+</script>

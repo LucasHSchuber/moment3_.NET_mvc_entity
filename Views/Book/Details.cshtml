@@ -14,60 +14,31 @@
             <h3>@Html.DisplayFor(model => model.Title)</h3>
             <hr>
             <div class="content-info-container px-2 d-flex align-items-center" style="margin:-0.5em 0 -0.9em 0;">
-                <h6><i class="fa-solid fa-pencil"></i> @ViewBag.AuthorName</h6>
+                <a asp-action="BooksByAuthor" asp-controller="Author" asp-route-authorId="@ViewBag.AuthorId">
+                    <h6><i class="fa-solid fa-pencil mx-1" style="color:#0e0e0e;"></i><span>@ViewBag.AuthorName </span></h6>
+                </a>
                 <p class="mx-3 mt-2">|</p>
-                <h6 class="mx-2">@Html.DisplayFor(model => model.Grade)/5 <i class="fa-solid fa-star" style="color:#e3b302;"></i></h6>
+                <h6 class="mx-2">@Html.DisplayFor(model => model.Grade)/5 <i class="fa-solid fa-star"
+                        style="color:#e3b302;"></i></h6>
                 <p class="mx-3 mt-2">|</p>
                 <h6>@Html.DisplayFor(model => model.Genre)</h6>
             </div>
             <hr>
             <p>@Html.DisplayFor(model => model.Description)</p>
 
-            <div>
+            <div class="mt-4">
                 @* <a asp-action="Edit" asp-route-id="@Model?.BookId">Edit</a> |
                 <a asp-action="Delete" asp-route-id="@Model?.BookId">Delete</a> | *@
-                 <button><a asp-controller="Home" asp-action="Rentabook" asp-route-id="@Model?.BookId"><i class="fa-solid fa-house"></i> Rent book</a></button> 
-                <button><a asp-action="Index"><i class="fa-solid fa-caret-left"></i> Back</a></button>
+                <a class="details-btn" asp-action="Index"><i class="fa-solid fa-1x fa-caret-left"></i>&nbsp;Back</a>
+                <a class="details-btn" asp-controller="Home" asp-action="Rentabook" asp-route-id="@Model?.BookId"><i
+                        class="fa-solid fa-sm fa-share"></i>&nbsp;Rent book</a>
             </div>
         </div>
     </div>
-
 </div>
-
-
-@*
-<div>
-<h4>@Html.DisplayFor(model => model.Title)</h4>
-<hr />
-<dl class="row">
-<dt class="col-sm-2">
-@Html.DisplayNameFor(model => model.Title)
-</dt>
-<dd class="col-sm-10">
-@Html.DisplayFor(model => model.Title)
-</dd>
-<dt class="col-sm-2">
-@Html.DisplayNameFor(model => model.AuthorName)
-</dt>
-<dd class="col-sm-10">
-@Html.DisplayFor(model => model.AuthorName)
-</dd>
-<dt class="col-sm-2">
-@Html.DisplayNameFor(model => model.ImageName)
-</dt>
-<dd class="col-sm-10">
-@Html.DisplayFor(model => model.ImageName)
-</dd>
-</dl>
-</div>
-<div>
-<a asp-action="Edit" asp-route-id="@Model?.BookId">Edit</a> |
-<a asp-action="Index">Back to List</a>
-</div> *@
 
 
 
 <style>
-
-
+ 
 </style>
