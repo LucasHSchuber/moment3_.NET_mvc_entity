@@ -121,8 +121,6 @@ namespace moment3_mvc_entity.Controllers
 
 
 
-
-
                 //check for image
                 if (book.ImageFile != null)
                 {

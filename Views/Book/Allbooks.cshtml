@@ -6,7 +6,7 @@
 @* <h1>@ViewData["Title"]</h1> *@
 
 
-<div class="allbooks-wrapper mt-2">
+<div class="allbooks-wrapper">
 
     <div class="container">
 
@@ -18,7 +18,9 @@
             <form asp-controller="Book" asp-action="Allbooks" method="get" class="search-bar form-inline d-flex mb-5">
                 <input class="form-control mr-sm-2 mr-5" name="searchString" type="search" placeholder="Search"
                     aria-label="Search">
-                <button class="search-btn my-sm-0" type="submit">Search</button>
+                <div class="mx-3">
+                    <button class="search-btn my-sm-0" type="submit">Search</button>
+                </div>
             </form>
         </div>
 
@@ -26,7 +28,8 @@
             <h6>
                 @if (ViewBag.searchString != null)
                 {
-                    <text>Search for "@ViewBag.searchString". <a asp-controller="Book" asp-action="Allbooks"> <span style="font-size:0.9em;">Remove search</span></a></text>
+                    <text>Search for "@ViewBag.searchString". <a asp-controller="Book" asp-action="Allbooks"> <span
+                                style="font-size:0.9em;">Remove search</span></a></text>
                 }
                 else
                 {

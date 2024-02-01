@@ -45,6 +45,7 @@ namespace moment3_mvc_entity.Controllers
         }
 
         // GET: Rental/Create
+        // [Route("/Rental/Rentabook")]
         public IActionResult Create()
         {
             ViewData["BookId"] = new SelectList(_context.Book, "BookId", "Title");
@@ -56,16 +57,24 @@ namespace moment3_mvc_entity.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("RentalId,RentDate,ReturnDate,IsReturned,RenterName,RenterIdNumber,BookId")] Rental rental)
+        public async Task<IActionResult> Create([Bind("RentalId,RentDate,ReturnDate,IsReturned,RenterName,RenterIdNumber,BookId,Email")] Rental rental)
         {
-            // if (ModelState.IsValid)
-            // {
-            _context.Add(rental);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-            // }
-            // ViewData["BookId"] = new SelectList(_context.Book, "BookId", "BookId", rental.BookId);
-            // return View(rental);
+
+            if (rental.ReturnDate.HasValue && rental.ReturnDate.Value > rental.RentDate.AddMonths(1))
+            {
+                ModelState.AddModelError(nameof(Rental.ReturnDate), "Return date cannot be more than one month later than the rental date.");
+            }
+
+            
+            if (ModelState.IsValid)
+            {
+                _context.Add(rental);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+
+            ViewData["BookId"] = new SelectList(_context.Book, "BookId", "Title", rental.BookId);
+            return View(rental);
         }
 
         // GET: Rental/Edit/5

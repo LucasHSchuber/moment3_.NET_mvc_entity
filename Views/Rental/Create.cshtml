@@ -1,57 +1,74 @@
 @model moment3_mvc_entity.Models.Rental
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Rent a book";
 }
 
-<h1>Create</h1>
+<div class="rentabook-wrapper">
 
-<h4>Rental</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="RentDate" class="control-label"></label>
-                <input asp-for="RentDate" class="form-control" />
-                <span asp-validation-for="RentDate" class="text-danger"></span>
+    <div class="container">
+
+        <div class="rentabook-form">
+
+            <div class="search-wrapper pt-5 pb-3">
+                <h2 class="mb-4 ">@ViewData["Title"]</h2>
+                <hr>
+                <div>
+                    <h6>Fill out the form</h6>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="ReturnDate" class="control-label"></label>
-                <input asp-for="ReturnDate" class="form-control" />
-                <span asp-validation-for="ReturnDate" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
+
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label asp-for="RenterName" class="control-label"></label>
+                    <input asp-for="RenterName" class="form-control" />
+                    <span asp-validation-for="RenterName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="RenterIdNumber" class="control-label"></label>
+                    <input asp-for="RenterIdNumber" class="form-control" />
+                    <span asp-validation-for="RenterIdNumber" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group short">
+                    <label asp-for="BookId" class="control-label">Book title</label>
+                    <select asp-for="BookId" class="form-control" asp-items="ViewBag.BookId"></select>
+                    <span asp-validation-for="BookId" class="text-danger"></span>
+                </div>
+                <div class="form-group short">
+                    <label asp-for="RentDate" class="control-label"></label>
+                    <input asp-for="RentDate" class="form-control" />
+                    <span asp-validation-for="RentDate" class="text-danger"></span>
+                </div>
+                <div class="form-group short">
+                    <label asp-for="ReturnDate" class="control-label"></label>
+                    <input asp-for="ReturnDate" class="form-control" />
+                    <span asp-validation-for="ReturnDate" class="text-danger"></span>
+                </div>
+                @* <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="IsReturned" /> @Html.DisplayNameFor(model => model.IsReturned)
+                <input class="form-check-input" asp-for="IsReturned" /> @Html.DisplayNameFor(model =>
+                model.IsReturned)
                 </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="RenterName" class="control-label"></label>
-                <input asp-for="RenterName" class="form-control" />
-                <span asp-validation-for="RenterName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="RenterIdNumber" class="control-label"></label>
-                <input asp-for="RenterIdNumber" class="form-control" />
-                <span asp-validation-for="RenterIdNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="BookId" class="control-label"></label>
-                <select asp-for="BookId" class ="form-control" asp-items="ViewBag.BookId"></select>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+                </div> *@
+
+                <div class="form-group mt-3">
+                    <button class="rent-btn my-sm-0" type="submit">Rent book</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
