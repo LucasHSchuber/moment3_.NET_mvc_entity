@@ -347,6 +347,22 @@ body {
     font-size: 3em;
     width: 50%;
   }
+
+  .latest-book-box img {
+    width: 8em;
+    height: 8em;
+    max-width: 8em;
+    margin: 0.5em;
+    border-radius: 4%;
+  }
+
+  .author-box img {
+    width: 6em;
+    height: 8em;
+
+    margin: 0.1em;
+    border-radius: 4%;
+  }
 }
 
 
@@ -393,10 +409,29 @@ body {
 
 
 @media screen and (max-width: 768px) {
+  .details-wrapper {
+    padding: 4em 1em 10em 1em;
+  }
+
   .details-wrapper img {
     margin-right: 2em;
     width: 13em;
     height: 13em;
+    margin: 0 auto;
+    display: block;
+  }
+  .content-container {
+    margin-top: 2em;
+  }
+}
+
+@media screen and (max-width: 992px) {
+
+  .details-wrapper img {
+    width: 14em;
+    height: 14em;
+    border-radius: 6%;
+    margin: 0 auto;
   }
 }
 
@@ -410,12 +445,103 @@ body {
   height: fit-content;
 }
 
+.search-wrapper {
+  color: #0e0e0e;
+}
+
+.search-bar {
+  width: 50%;
+}
+
+.search-bar input {
+  height: 2.5em;
+
+}
+
+.card-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.card-link:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+.card {
+  width: 10.5em !important;
+  height: fit-content;
+  transition: 0.1s;
+}
+
+.card:hover {
+  border: 0.5px solid rgb(182, 182, 182);
+}
+
+.card:hover img {
+  padding: 0.1em;
+}
+
+.card img {
+  margin-left: -0.58em;
+  margin-top: 0.2em;
+  transition: 0.1s;
+}
+
+.card-body {
+  margin: 0 -0.9em !important;
+}
+
+.card-body-title {
+  height: 2.5em;
+}
+
+.card-body-grade-genre {
+  margin-top: 2em;
+  margin-bottom: -1.2em;
+}
+
+.card-body p {
+  font-size: 0.7em;
+}
+
+.card-body h6 {
+  font-size: 0.9em;
+  font-weight: 500;
+}
+
+.hr {
+  color: rgb(144, 144, 144);
+}
 
 @media screen and (max-width: 768px) {
   .allbooks-wrapper {
     padding: 0 1em 5em 1em;
   }
+
+  .card {
+    width: 9em !important;
+    height: fit-content;
+    transition: 0.1s;
+  }
+
+  .card img {
+    width: 8.5em !important;
+    height: 8.5em !important;
+    margin-left: -0.58em;
+    margin-top: 0.2em;
+  }
+
+  .search-bar {
+    width: 75%;
+  }
+
+  .search-bar input {
+    height: 3em;
+  }
 }
+
+
 
 
 

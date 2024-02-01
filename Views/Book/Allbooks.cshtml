@@ -40,7 +40,7 @@
 
         <div class="card-deck row py-4">
             @{
-                var showManyBook = Model.Take(30);
+                var showManyBook = Model.Take(50);
             }
             @foreach (var book in showManyBook)
             {
@@ -75,82 +75,7 @@
 @* CSS *@
 
 <style>
-    .search-wrapper {
-        color: #0e0e0e;
-    }
 
-    .search-bar {
-        width: 50%;
-
-    }
-
-    .search-bar input {
-        height: 2.5em;
-
-    }
-
-
-
-
-    .details-wrapper {
-        padding: 0 8em 5em 8em;
-    }
-
-    .card-link {
-        color: inherit;
-        text-decoration: none;
-    }
-
-    .card-link:hover {
-        color: inherit;
-        text-decoration: none;
-    }
-
-    .card {
-        width: 10.5em !important;
-        height: fit-content;
-        transition: 0.1s;
-    }
-
-    .card:hover {
-        border: 0.5px solid rgb(182, 182, 182);
-    }
-
-    .card:hover img {
-        padding: 0.1em;
-    }
-
-    .card img {
-        margin-left: -0.58em;
-        margin-top: 0.2em;
-        transition: 0.1s;
-    }
-
-    .card-body {
-        margin: 0 -0.9em !important;
-    }
-
-    .card-body-title {
-        height: 2.5em;
-    }
-
-    .card-body-grade-genre {
-        margin-top: 2em;
-        margin-bottom: -1.2em;
-    }
-
-    .card-body p {
-        font-size: 0.7em;
-    }
-
-    .card-body h6 {
-        font-size: 0.9em;
-        font-weight: 500;
-    }
-
-    .hr {
-        color: rgb(144, 144, 144);
-    }
 </style>
 
 

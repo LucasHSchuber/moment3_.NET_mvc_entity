@@ -93,7 +93,7 @@ namespace moment3_mvc_entity.Controllers
             {
                 _context.Add(rental);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "Book");
             }
 
             ViewData["BookId"] = new SelectList(_context.Book, "BookId", "Title", rental.BookId);
