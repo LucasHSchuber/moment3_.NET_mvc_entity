@@ -22,6 +22,8 @@ namespace moment3_mvc_entity.Controllers
             wwwRootPath = hostEnvironment.WebRootPath;
         }
 
+
+
         // GET: Book
         public async Task<IActionResult> Index()
         {
@@ -31,6 +33,7 @@ namespace moment3_mvc_entity.Controllers
         // {
         //     return View(await _context.Book.ToListAsync());
         // }
+
 
 
         // GET: All books
@@ -59,6 +62,8 @@ namespace moment3_mvc_entity.Controllers
         }
 
 
+
+
         // GET: Book/Details/5
         public async Task<IActionResult> Details(int? id, int? AuthorId)
         {
@@ -74,13 +79,22 @@ namespace moment3_mvc_entity.Controllers
                 return NotFound();
             }
 
+            //send some data from Rental table
+            var rentalDates = await _context.Rental
+                .Where(r => r.BookId == id && (r.ReturnDate.Value > DateTime.Now))
+                .Select(r => new { r.RentDate, r.ReturnDate })
+                .ToListAsync();
+            ViewBag.RentalDates = rentalDates;
+
+
+            //send some data from Author table
             var author = await _context.Book
              .Include(b => b.Author)
              .FirstOrDefaultAsync(m => m.BookId == id);
-
             ViewBag.AuthorName = author.Author?.Name;
             ViewBag.AuthorId = author.Author?.AuthorId;
 
+            //send some data from Rental table
 
             return View(book);
         }
@@ -245,6 +259,9 @@ namespace moment3_mvc_entity.Controllers
             return View(book);
         }
 
+
+
+
         // GET: Book/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -262,6 +279,9 @@ namespace moment3_mvc_entity.Controllers
 
             return View(book);
         }
+
+
+
 
         // POST: Book/Delete/5
         [HttpPost, ActionName("Delete")]

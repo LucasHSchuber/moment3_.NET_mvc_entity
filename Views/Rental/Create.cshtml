@@ -18,7 +18,7 @@
                 </div>
             </div>
 
-            <form asp-action="Create">
+            <form asp-action="Create" id="rentalForm">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
                 <div class="form-group">
@@ -38,17 +38,17 @@
                 </div>
                 <div class="form-group short">
                     <label asp-for="BookId" class="control-label">Book title</label>
-                    <select asp-for="BookId" class="form-control" asp-items="ViewBag.BookId"></select>
+                    <select asp-for="BookId" class="form-control" asp-items="@ViewBag.BookId"></select>
                     <span asp-validation-for="BookId" class="text-danger"></span>
                 </div>
                 <div class="form-group short">
                     <label asp-for="RentDate" class="control-label"></label>
-                    <input asp-for="RentDate" class="form-control" />
+                    <input asp-for="RentDate" class="form-control" type="date" />
                     <span asp-validation-for="RentDate" class="text-danger"></span>
                 </div>
                 <div class="form-group short">
                     <label asp-for="ReturnDate" class="control-label"></label>
-                    <input asp-for="ReturnDate" class="form-control" />
+                    <input asp-for="ReturnDate" class="form-control" type="date" />
                     <span asp-validation-for="ReturnDate" class="text-danger"></span>
                 </div>
                 @* <div class="form-group form-check">
@@ -59,12 +59,31 @@
                 </div> *@
 
                 <div class="form-group mt-3">
-                    <button class="rent-btn my-sm-0" type="submit">Rent book</button>
+                    <button id="rentButton" class="rent-btn my-sm-0" type="submit">Rent book</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
+
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("rentButton").addEventListener("click", function (event) {
+            event.preventDefault();
+            confirmAndSubmit();
+        });
+
+        function confirmAndSubmit() {
+            var result = confirm("Are you sure you want to rent this book?");
+            if (result) {
+                document.getElementById('rentalForm').submit();
+            }
+        }
+    });
+</script>
+
 
 
 @section Scripts {

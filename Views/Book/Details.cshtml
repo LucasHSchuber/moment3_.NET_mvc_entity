@@ -31,9 +31,22 @@
                 <a class="details-btn" onclick="history.back();">
                     <i class="fa-solid fa-1x fa-caret-left"></i>&nbsp;Back
                 </a>
-                <a class="details-btn mx-2" asp-controller="Home" asp-action="Rentabook" asp-route-id="@Model?.BookId"><i
+                <a class="details-btn mx-2" asp-controller="Rental" asp-action="Create" asp-route-Id="@Model.BookId"><i
                         class="fa-solid fa-sm fa-share"></i>&nbsp;Rent book</a>
+                <a class="details-btn" onclick="showAvBox()"><i class="fa-solid fa-caret-down"></i>&nbsp;Check availablitly</a>
             </div>
+
+            <div class="av-box mt-5" id="av-box">
+                <h6 class="mb-3">Rented out periods:</h6>
+                @foreach (var date in ViewBag.RentalDates)
+                {
+                    <p><i class="fa-regular fa-calendar"></i> Period:<span style="color:red;">
+                            @date.RentDate.ToString("dd") @date.RentDate.ToString("MMMM") -
+                            @date.ReturnDate.ToString("dd") @date.ReturnDate.ToString("MMMM")</span></p>
+                }
+                </ul>
+            </div>
+
         </div>
     </div>
 </div>
@@ -41,5 +54,20 @@
 
 
 <style>
+    #av-box {
+        display: none;
+    }
 
+    .av-box {
+        border-top: 0.5px solid rgb(193, 193, 193);
+        padding: 1em 2em 2em 0;
+        width: fit-content;
+        height: fit-content;
+    }
 </style>
+
+<script>
+    function showAvBox() {
+        document.getElementById("av-box").style.display = "block";
+    }
+</script>

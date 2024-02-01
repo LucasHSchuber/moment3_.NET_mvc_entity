@@ -46,10 +46,19 @@ namespace moment3_mvc_entity.Controllers
 
         // GET: Rental/Create
         // [Route("/Rental/Rentabook")]
-        public IActionResult Create()
+        public IActionResult Create(int? Id)
         {
-            ViewData["BookId"] = new SelectList(_context.Book, "BookId", "Title");
-            return View();
+            //retive the BookId from detals.cshtml
+            if (Id != null)
+            {
+                ViewData["BookId"] = new SelectList(_context.Book, "BookId", "Title", Id);
+                return View();
+            }
+            else
+            {
+                ViewData["BookId"] = new SelectList(_context.Book, "BookId", "Title");
+                return View();
+            }
         }
 
         // POST: Rental/Create
@@ -60,12 +69,26 @@ namespace moment3_mvc_entity.Controllers
         public async Task<IActionResult> Create([Bind("RentalId,RentDate,ReturnDate,IsReturned,RenterName,RenterIdNumber,BookId,Email")] Rental rental)
         {
 
+            //check availablity
+            var isRented = _context.Rental.Any(r => r.BookId == rental.BookId && r.RentDate <= rental.ReturnDate && r.ReturnDate >= rental.RentDate);
+            if (isRented)
+            {
+                ModelState.AddModelError(nameof(Rental.BookId), "The book is already rented out during your requested rental period");
+
+            }
+            //check so rental date is not past date
+            if (rental.RentDate < DateTime.Now.AddDays(-1))
+            {
+                ModelState.AddModelError(nameof(Rental.RentDate), "Rental date cannot be a past date.");
+            }
+            //check so rental period is not more than one month
             if (rental.ReturnDate.HasValue && rental.ReturnDate.Value > rental.RentDate.AddMonths(1))
             {
-                ModelState.AddModelError(nameof(Rental.ReturnDate), "Return date cannot be more than one month later than the rental date.");
+                ModelState.AddModelError(nameof(Rental.ReturnDate), "Your rental period can maximum be of one month");
             }
 
-            
+
+
             if (ModelState.IsValid)
             {
                 _context.Add(rental);
