@@ -81,7 +81,7 @@ namespace moment3_mvc_entity.Controllers
 
             //send some data from Rental table
             var rentalDates = await _context.Rental
-                .Where(r => r.BookId == id && (r.ReturnDate.Value > DateTime.Now))
+                .Where(r => r.BookId == id && (r.ReturnDate.Value >= DateTime.Today))
                 .Select(r => new { r.RentDate, r.ReturnDate })
                 .ToListAsync();
             ViewBag.RentalDates = rentalDates;
