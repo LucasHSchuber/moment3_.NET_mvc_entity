@@ -43,11 +43,12 @@ namespace moment3_mvc_entity.Controllers
             if (!string.IsNullOrEmpty(searchString))
             {
                 var searchResults = _context.Book
-                .Include(b => b.Author)
-                .Where(b => b.Title.ToLower().Contains(searchString.ToLower())
-                    || b.Author.Name.ToLower().Contains(searchString.ToLower())
-                    || b.Genre.ToLower().Contains(searchString.ToLower()))
-                .ToList();
+                    .Include(b => b.Author)
+                    .Where(b => (b.Title != null && b.Title.ToLower().Contains(searchString.ToLower()))
+                 || (b.Author != null && b.Author.Name != null && b.Author.Name.ToLower().Contains(searchString.ToLower()))
+                 || (b.Genre != null && b.Genre.ToLower().Contains(searchString.ToLower())))
+                    .ToList();
+
 
                 ViewBag.searchString = searchString;
 
@@ -81,7 +82,7 @@ namespace moment3_mvc_entity.Controllers
 
             //send some data from Rental table
             var rentalDates = await _context.Rental
-                .Where(r => r.BookId == id && (r.ReturnDate.Value >= DateTime.Today))
+                .Where(r => r.BookId == id && r.ReturnDate.HasValue && r.ReturnDate.Value >= DateTime.Today)
                 .Select(r => new { r.RentDate, r.ReturnDate })
                 .ToListAsync();
             ViewBag.RentalDates = rentalDates;
@@ -119,7 +120,7 @@ namespace moment3_mvc_entity.Controllers
 
 
                 // Check if the selected author exists
-                Author author = _context.Author.FirstOrDefault(a => a.AuthorId == book.AuthorId);
+                Author? author = _context.Author.FirstOrDefault(a => a.AuthorId == book.AuthorId);
 
                 if (author == null)
                 {
@@ -202,7 +203,7 @@ namespace moment3_mvc_entity.Controllers
 
 
                 // Check if the selected author exists
-                Author author = _context.Author.FirstOrDefault(a => a.AuthorId == book.AuthorId);
+                Author? author = _context.Author.FirstOrDefault(a => a.AuthorId == book.AuthorId);
 
                 if (author == null)
                 {
