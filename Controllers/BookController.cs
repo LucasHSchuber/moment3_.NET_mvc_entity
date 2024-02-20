@@ -124,7 +124,7 @@ namespace moment3_mvc_entity.Controllers
 
                 if (author == null)
                 {
-                    // Handle the case where the selected author doesn't exist (you may want to add appropriate error handling)
+                    // Handle the case where the selected author doesn't exist 
                     ModelState.AddModelError("AuthorId", "Selected author does not exist.");
                     ViewData["AuthorId"] = new SelectList(_context.Author, "AuthorId", "Name", book.AuthorId);
                     return View(book);
@@ -207,7 +207,7 @@ namespace moment3_mvc_entity.Controllers
 
                 if (author == null)
                 {
-                    // Handle the case where the selected author doesn't exist (you may want to add appropriate error handling)
+                    // Handle the case where the selected author doesn't exist 
                     ModelState.AddModelError("AuthorId", "Selected author does not exist.");
                     ViewData["AuthorId"] = new SelectList(_context.Author, "AuthorId", "Name", book.AuthorId);
                     return View(book);

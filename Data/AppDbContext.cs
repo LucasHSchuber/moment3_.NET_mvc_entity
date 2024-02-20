@@ -15,5 +15,5 @@ public class AppDbContext : DbContext
     public DbSet<Book> Book { get; set; } = default!;
     public DbSet<Author> Author { get; set; } = default!;
     public DbSet<Rental> Rental { get; set; } = default!;
-
+    
 }
